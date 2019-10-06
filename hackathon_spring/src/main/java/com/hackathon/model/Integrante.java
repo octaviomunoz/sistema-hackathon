@@ -22,7 +22,7 @@ public class Integrante{
 
 	private String telefono;
 
-	/*
+
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_equipo")
@@ -99,7 +99,7 @@ public class Integrante{
 	}
 
 
-	*/
 
 
-};
+
+}

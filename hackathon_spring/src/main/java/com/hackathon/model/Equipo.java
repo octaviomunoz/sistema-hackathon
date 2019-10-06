@@ -16,7 +16,6 @@ public class Equipo {
 	private long id;
 
 	private String nombre;
-	/*
 
 	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
@@ -26,8 +25,6 @@ public class Equipo {
 	@JsonIgnore
 	@OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
 	private List<Integrante> integrantes = new ArrayList<>();
-
-
 
 	public long getId() {
 		return id;
@@ -60,8 +57,5 @@ public class Equipo {
 	public void setIntegrantes(List<Integrante> integrantes) {
 		this.integrantes = integrantes;
 	}
-	*/
-
-
 
 }
