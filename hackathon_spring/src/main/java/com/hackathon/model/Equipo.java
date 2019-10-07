@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.hackathon.model.Integrante;
+import com.hackathon.model.Foto;
 
 @Entity
 @Table(name="equipos")
@@ -20,7 +21,7 @@ public class Equipo {
 	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_foto")
-	private long foto;
+	private Foto foto;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
@@ -42,11 +43,11 @@ public class Equipo {
 		this.nombre = nombre;
 	}
 
-	public long getFoto() {
+	public Foto getFoto() {
 		return foto;
 	}
 
-	public void setFoto(long foto) {
+	public void setFoto(Foto foto) {
 		this.foto = foto;
 	}
 
