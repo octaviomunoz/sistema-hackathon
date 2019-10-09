@@ -19,7 +19,9 @@ public class Hackathon {
 
 	private int integrantesPorEquipo = 3;
 
-	/*
+	private String color;
+
+
 	public long getId() {
 		return id;
 	}
@@ -60,6 +62,12 @@ public class Hackathon {
 		this.integrantesPorEquipo = integrantesPorEquipo;
 	}
 
-	*/
+	public String getColor(){
+		return color;
+	}
+
+	public void setColor(String color){
+		this.color = color;
+	}
 
 }
