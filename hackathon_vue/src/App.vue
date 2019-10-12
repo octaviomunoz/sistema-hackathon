@@ -2,6 +2,11 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <nav>
+      <router-link class="btn btn-primary" to="/inscripcion">Inscribir Equipo</router-link>
+    </nav>
+
   </div>
 </template>
 
@@ -9,11 +14,8 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: 'app'
+};
 </script>
 
 <style>

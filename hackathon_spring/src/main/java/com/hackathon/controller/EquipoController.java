@@ -19,6 +19,7 @@ public class EquipoController {
   @Autowired
   EquipoRepo equiporepo;
 
+//Muestra todos los equipos en la base de datos.
   @GetMapping("/equipos")
   public List<Equipo> getAllEquipos(){
     System.out.println("Muestra todos los equipos");
@@ -28,5 +29,7 @@ public class EquipoController {
 
     return equipos;
   }
+
+
 
 }

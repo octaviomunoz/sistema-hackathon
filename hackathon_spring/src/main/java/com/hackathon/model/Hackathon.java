@@ -13,6 +13,8 @@ public class Hackathon {
 
 	private String tema;
 
+	private String descripcion;
+
 	private Date fechaRealizacion;
 
 	private Date fechaFinalizacionInscripcion;
@@ -37,6 +39,15 @@ public class Hackathon {
 	public void setTema(String tema) {
 		this.tema = tema;
 	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 
 	public Date getFechaRealizacion() {
 		return fechaRealizacion;
