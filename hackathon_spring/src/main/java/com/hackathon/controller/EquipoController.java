@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import com.hackathon.model.Integrante;
 import com.hackathon.model.Equipo;
+import com.hackathon.model.Hackathon;
 
 import com.hackathon.repo.EquipoRepo;
+import com.hackathon.repo.HackathonRepo;
 
 @RestController
 @RequestMapping("/equipo")
@@ -18,6 +20,8 @@ public class EquipoController {
 
   @Autowired
   EquipoRepo equiporepo;
+  @Autowired
+  HackathonRepo hackathonrepo;
 
 //Muestra todos los equipos en la base de datos.
   @GetMapping("/equipos")
@@ -29,6 +33,8 @@ public class EquipoController {
 
     return equipos;
   }
+
+  
 
 
 

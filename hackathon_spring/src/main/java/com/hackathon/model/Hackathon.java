@@ -24,6 +24,7 @@ public class Hackathon {
 	private String color;
 
 
+
 	public long getId() {
 		return id;
 	}
