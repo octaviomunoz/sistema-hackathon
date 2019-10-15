@@ -30,7 +30,7 @@ public class Hackathon {
 	private String color;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "hakathon", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "hackathon", cascade = CascadeType.ALL)
 	private List<Equipo> equipos;
 
 
