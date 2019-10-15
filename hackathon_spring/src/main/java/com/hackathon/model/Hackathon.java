@@ -19,7 +19,9 @@ public class Hackathon {
 
 	private Date fechaFinalizacionInscripcion;
 
-	private int integrantesPorEquipo = 3;
+	private int integrantesMaxEquipo;
+
+	private int integrantesMinEquipo = 1;
 
 	private String color;
 
@@ -66,12 +68,20 @@ public class Hackathon {
 		this.fechaFinalizacionInscripcion = fechaFinalizacionInscripcion;
 	}
 
-	public int getIntegrantesPorEquipo() {
-		return integrantesPorEquipo;
+	public int getIntegrantesMaxEquipo() {
+		return integrantesMaxEquipo;
 	}
 
-	public void setIntegrantesPorEquipo(int integrantesPorEquipo) {
-		this.integrantesPorEquipo = integrantesPorEquipo;
+	public void setIntegrantesMaxEquipo(int integrantesMaxEquipo) {
+		this.integrantesMaxEquipo = integrantesMaxEquipo;
+	}
+
+	public int getIntegrantesMinEquipo() {
+		return integrantesMaxEquipo;
+	}
+
+	public void setIntegrantesMinEquipo(int integrantesMinEquipo) {
+		this.integrantesMinEquipo = integrantesMinEquipo;
 	}
 
 	public String getColor(){
