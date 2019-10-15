@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.hackathon.model.Integrante;
 import com.hackathon.model.Foto;
+import com.hackathon.model.Hackathon;
+
 
 @Entity
 @Table(name="equipos")
@@ -26,6 +28,11 @@ public class Equipo {
 	@JsonIgnore
 	@OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
 	private List<Integrante> integrantes = new ArrayList<>();
+
+	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_hackathon")
+	private Hackathon hackathon;
 
 	public long getId() {
 		return id;
@@ -57,6 +64,14 @@ public class Equipo {
 
 	public void setIntegrantes(List<Integrante> integrantes) {
 		this.integrantes = integrantes;
+	}
+
+	public Hackathon getHackathon(){
+		return hackathon;
+	}
+
+	public void setHackathon(Hackathon hackathon){
+		this.hackathon = hackathon;
 	}
 
 }

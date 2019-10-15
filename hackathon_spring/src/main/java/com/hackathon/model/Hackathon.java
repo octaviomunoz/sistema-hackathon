@@ -1,6 +1,10 @@
 package com.hackathon.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Date;
 
 @Entity
@@ -25,6 +29,9 @@ public class Hackathon {
 
 	private String color;
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "hakathon", cascade = CascadeType.ALL)
+	private List<Equipo> equipos;
 
 
 	public long getId() {
@@ -77,7 +84,7 @@ public class Hackathon {
 	}
 
 	public int getIntegrantesMinEquipo() {
-		return integrantesMaxEquipo;
+		return integrantesMinEquipo;
 	}
 
 	public void setIntegrantesMinEquipo(int integrantesMinEquipo) {
@@ -90,6 +97,14 @@ public class Hackathon {
 
 	public void setColor(String color){
 		this.color = color;
+	}
+
+	public List<Equipo> getEquipos(){
+		return equipos;
+	}
+
+	public void setEquipos(List<Equipos> equipos){
+		this.equipos = equipos;
 	}
 
 }
