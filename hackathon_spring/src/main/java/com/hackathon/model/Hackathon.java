@@ -12,7 +12,7 @@ import java.util.Date;
 public class Hackathon {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
 	private String tema;
@@ -103,7 +103,7 @@ public class Hackathon {
 		return equipos;
 	}
 
-	public void setEquipos(List<Equipos> equipos){
+	public void setEquipos(List<Equipo> equipos){
 		this.equipos = equipos;
 	}
 
