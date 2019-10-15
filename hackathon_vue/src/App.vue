@@ -6,15 +6,15 @@
     <nav>
       <router-link class="btn btn-primary" to="/inscripcion">Inscribir Equipo</router-link>
     </nav>
+    <br/>
+    <router-view/>
 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app'
+  name: "app"
 };
 </script>
 
