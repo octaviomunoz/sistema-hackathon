@@ -6,6 +6,9 @@
     <nav>
       <router-link class="btn btn-primary" to="/inscripcion">Inscribir Equipo</router-link>
     </nav>
+    <nav>
+      <router-link class="btn btn-danger" to="/hackathon">Listar hackathon?</router-link>
+    </nav>
     <br/>
     <router-view/>
 
