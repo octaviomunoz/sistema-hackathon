@@ -8,7 +8,7 @@
                             name: 'hackathon',
                             params: { hackathon: hackathon, id: hackathon.id }
                         }">
-                            {{hackathon.tema}}
+                            {{hackathon.tema}}      
                     </router-link>
                 </li>
             </ul>
