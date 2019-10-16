@@ -22,6 +22,13 @@ public class Integrante{
 
 	private String telefono;
 
+	public Integrante(String nombre, String run, String talla, String email, String telefono){
+		this.nombre = nombre;
+		this.run = run;
+		this.talla = talla;
+		this.email = email;
+		this.telefono = telefono;
+	}
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)

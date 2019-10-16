@@ -13,7 +13,7 @@ import java.util.Date;
 public class Hackathon {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	private String tema;
@@ -33,6 +33,11 @@ public class Hackathon {
 	@JsonIgnore
 	@OneToMany(mappedBy = "hackathon", cascade = CascadeType.ALL)
 	private List<Equipo> equipos;
+
+	@Override
+	public String toString(){
+		return "Hackathon [id="+id+", tema="+ tema+"descripcion="+descripcion+ "]";
+	}
 
 
 	public long getId() {

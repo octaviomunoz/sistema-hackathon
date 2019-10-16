@@ -1,2 +1,2 @@
-INSERT INTO hackathons (tema, descripcion, fechaRealizacion, fechaFinalizacionInscripcion, integrantesMaxEquipo, integrantesMinEquipo, color) VALUES
-('TEMA', 'DESCRIPCION', '12/11/2019', '08/11/2019', 1, 5, '#fff')
+INSERT INTO hackathons (tema, descripcion, fecha_realizacion, fecha_finalizacion_inscripcion, integrantes_max_equipo, integrantes_min_equipo, color) VALUES
+('TEMA', 'DESCRIPCION', '2019-11-12', '2019-11-08', 1, 5, '#fff');

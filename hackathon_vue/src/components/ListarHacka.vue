@@ -18,10 +18,10 @@
         </div>
     </div>
 </template>
- 
+
 <script>
 import http from "../http-common";
- 
+
 export default {
   name: "hackathon",
   data() {
@@ -33,7 +33,7 @@ export default {
     /* eslint-disable no-console */
     retrieveHackathons() {
       http
-        .get("/hackathons")
+        .get("/hack/hackathons")
         .then(response => {
           this.hackathons = response.data; // JSON are parsed automatically.
           console.log(response.data);
@@ -52,7 +52,7 @@ export default {
   }
 };
 </script>
- 
+
 <style>
 .list {
   text-align: left;

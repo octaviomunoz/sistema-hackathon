@@ -13,6 +13,7 @@ import com.hackathon.model.Hackathon;
 
 import com.hackathon.repo.EquipoRepo;
 import com.hackathon.repo.HackathonRepo;
+import com.hackathon.repo.IntegranteRepo;
 
 @RestController
 @RequestMapping("/equipo")
@@ -22,20 +23,25 @@ public class EquipoController {
   EquipoRepo equiporepo;
   @Autowired
   HackathonRepo hackathonrepo;
+  @Autowired
+  IntegranteRepo integranterepo;
 
-//Muestra todos los equipos en la base de datos.
-  @GetMapping("/equipos")
-  public List<Equipo> getAllEquipos(){
-    System.out.println("Muestra todos los equipos");
+  List<Integrante> integrante = new ArrayList<>();
 
-    List<Equipo> equipos = new ArrayList<>();
-    equiporepo.findAll().forEach(equipos::add);
 
-    return equipos;
+  @PostMapping("/equipo")
+  public void setInformacionEquipo(@RequestBody Equipo equipo){
+
   }
 
-  
-
+  @PostMapping("/integrante/{num}")
+  public void setIntegrante(@PathVariable("num") int num, @RequestBody Integrante integrante){
+    if (this.integrante.size() <= num){
+      this.integrante.add(new Integrante(integrante.getNombre(), integrante.getRun(), integrante.getTalla(), integrante.getEmail(), integrante.getTelefono()));
+    }else{
+      this.integrante.set(num, new Integrante(integrante.getNombre(), integrante.getRun(), integrante.getTalla(), integrante.getEmail(), integrante.getTelefono()));
+    }
+  }
 
 
 }
