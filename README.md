@@ -6,9 +6,9 @@ Carlos:
 Interfaz Principal 
 Album Pagina Principal
 
-Bastian:
+Bastian: 
 Organizador Ingresar Tema
-API de Fotos	
+API de Fotos	 ):
 
 Octavio:
 Configuracion ADMIN 
