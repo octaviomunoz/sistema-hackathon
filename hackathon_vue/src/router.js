@@ -5,6 +5,8 @@ import InscribirEquipo from "./components/InscribirEquipo.vue"
 
 import ListarHacka from "./components/ListarHacka.vue"
 
+import IngresarHackathon from "./components/IngresarHackathon.vue"
+
 Vue.use(Router);
 
 export default new Router({
@@ -16,11 +18,10 @@ export default new Router({
       name: "inscripcion",
       component: InscribirEquipo
     },
-    {
-        path: "/hackathon",
-        name: "hackathon",
-        component: ListarHacka
-      }
+    {path: "/hackathon",name: "hackathon",component: ListarHacka
+     },
+     {path: "/addhacka",name: "addhacka",component: IngresarHackathon
+     }
   ]
 
 });

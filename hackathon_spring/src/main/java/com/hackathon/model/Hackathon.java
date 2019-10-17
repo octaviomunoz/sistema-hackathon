@@ -15,22 +15,7 @@ public class Hackathon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-
-	public Hackathon(String tema, String descripcion, Date fechaRealizacion, Date fechaFinalizacionInscripcion,
-			int integrantesMaxEquipo, int integrantesMinEquipo, String color) {
-		this.tema = tema;
-		this.descripcion = descripcion;
-		this.fechaRealizacion = fechaRealizacion;
-		this.fechaFinalizacionInscripcion = fechaFinalizacionInscripcion;
-		this.integrantesMaxEquipo = integrantesMaxEquipo;
-		this.integrantesMinEquipo = integrantesMinEquipo;
-		this.color = color;
-	}
-
-	public Hackathon() {
-		super();
-	}
-
+	
 	private String tema;
 
 	private String descripcion;
@@ -127,5 +112,19 @@ public class Hackathon {
 	public void setEquipos(List<Equipo> equipos){
 		this.equipos = equipos;
 	}
+	
+	public Hackathon(String tema, String descripcion, Date fechaRealizacion, Date fechaFinalizacionInscripcion,
+			int integrantesMaxEquipo, int integrantesMinEquipo, String color) {
+		this.tema = tema;
+		this.descripcion = descripcion;
+		this.fechaRealizacion = fechaRealizacion;
+		this.fechaFinalizacionInscripcion = fechaFinalizacionInscripcion;
+		this.integrantesMaxEquipo = integrantesMaxEquipo;
+		this.integrantesMinEquipo = integrantesMinEquipo;
+		this.color = color;
+	}
 
+	public Hackathon() {
+		super();
+	}
 }

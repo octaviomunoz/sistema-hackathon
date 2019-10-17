@@ -9,7 +9,13 @@
     </nav>
     <nav>
       <router-link class="btn btn-danger" to="/hackathon">Listar hackathon?</router-link>
+      
     </nav>
+      <nav>
+      <router-link class="btn btn-danger" to="/addhacka">Agregar Hackathon</router-link>
+      
+    </nav>
+    
     <br/>
     <router-view/>
 
