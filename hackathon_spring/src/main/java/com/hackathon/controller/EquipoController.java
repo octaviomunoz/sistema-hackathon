@@ -33,7 +33,7 @@ public class EquipoController {
   public void setInformacionEquipo(@RequestBody Equipo equipo){
 
   }
-
+// comentario
   @PostMapping("/integrante/{num}")
   public void setIntegrante(@PathVariable("num") int num, @RequestBody Integrante integrante){
     if (this.integrante.size() <= num){

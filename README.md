@@ -4,7 +4,7 @@
 
 Carlos:
 Interfaz Principal 
-Album Pagina Principal
+Album Pagina Principal.
 
 Bastian: 
 Organizador Ingresar Tema
