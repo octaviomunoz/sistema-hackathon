@@ -10,6 +10,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import {tick} from './componentes/CountDown.jsx';
 
+import Home from './componentes/vistas/Home.jsx';
 
 
 /*
@@ -29,8 +30,8 @@ function App(){
   <BrowserRouter>
     <Switch>
       <Route
-        path="/home"
-        component={NavBar} />
+        path="/"
+        component={Home} />
       <Route
         exact
         path="/newHackathon"
@@ -38,7 +39,7 @@ function App(){
       <Route
         exact
         path="/inicio"
-        render = {() => <tick/>} />
+        render = {() => <NavBar/>} />
       </Switch>
 
     </BrowserRouter>

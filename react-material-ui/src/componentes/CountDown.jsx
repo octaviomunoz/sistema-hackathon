@@ -18,7 +18,7 @@ function tick(){
 
   ReactDOM.render(
     element,
-    document.getElementById('root2')
+    document.getElementById('time')
   );
 }
 
