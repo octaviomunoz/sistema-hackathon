@@ -6,7 +6,13 @@ import Test from './componentes/Test.jsx';
 import CrearHacka from './componentes/CrearHacka.jsx';
 import Ejemplo from './componentes/vacio.jsx';
 
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import {tick} from './componentes/CountDown.jsx';
+
+
+
+/*
 function App() {
   return (<>
     <NavBar/>
@@ -16,6 +22,27 @@ function App() {
 
     </>
   );
+}*/
+
+function App(){
+  return (
+  <BrowserRouter>
+    <Switch>
+      <Route
+        path="/home"
+        component={NavBar} />
+      <Route
+        exact
+        path="/newHackathon"
+        render = {() => <CrearHacka />} />
+      <Route
+        exact
+        path="/inicio"
+        render = {() => <tick/>} />
+      </Switch>
+
+    </BrowserRouter>
+);
 }
 
 export default App;
