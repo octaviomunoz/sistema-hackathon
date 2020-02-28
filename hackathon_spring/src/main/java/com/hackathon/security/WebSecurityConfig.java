@@ -21,6 +21,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private UserDetailsService userDetailsService;
 
+	String[] libreAutenticacion = new String[]{
+		"/hackathon"
+	};
+
+
 	public WebSecurityConfig(UserDetailsService userDetailsService) {
 		this.userDetailsService = userDetailsService;
 	}
@@ -54,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.cors().and()
 				.csrf().disable()
 				.authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
+				.antMatchers(HttpMethod.GET, "/hackathon").permitAll()
 				.anyRequest().authenticated().and()
 				.addFilterBefore(new JwtAuthenticationFilter(authenticationManager()),
 						UsernamePasswordAuthenticationFilter.class)

@@ -2,9 +2,19 @@
 
 Para utilizar la API se exponen las siguiente URL:
 
+Sin Autenticacion
 |Metodo|URL|Descripcion|
 |---|---|---|
 |`POST`|`/login` | Iniciar Sesion|
+|`GET`|`/hackathon` | Devuelve la hackathon que esta activa|
+
+
+Con Autenticacion
+|Metodo|URL|Descripcion|
+|---|---|---|
+|`POST`|`/hackathon/guardar` | Guarda una Hackathon|
+|`GET`|`/hackathon/{id}` | Devuelve una Hackathon|
+|`GET`|`/hackathon/lista` | Devuelve Todas las hackathones finalizadadas|
 
 
 ### Ejemplo de uso de login
