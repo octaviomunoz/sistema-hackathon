@@ -74,4 +74,39 @@ public class HackathonController {
     }
     return new ResponseEntity<>(listasHacka, HttpStatus.OK);
   }
+
+  @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+  @PutMapping
+  public ResponseEntity<?> modificarHackathon(@RequestBody Hackathon hackathon){
+    Hackathon hacka_modificado = hackathonrepo.findById(hackathon.getId());
+
+    hacka_modificado.setTema(hackathon.getTema());
+    hacka_modificado.setDescripcion(hackathon.getDescripcion());
+    hacka_modificado.setFechaRealizacion(hackathon.getFechaRealizacion());
+    hacka_modificado.setFechaFinalizacionInscripcion(hackathon.getFechaFinalizacionInscripcion());
+    hacka_modificado.setIntegrantesMaxEquipo(hackathon.getIntegrantesMaxEquipo());
+    hacka_modificado.setIntegrantesMinEquipo(hackathon.getIntegrantesMinEquipo());
+
+    hackathonrepo.save(hacka_modificado);
+
+    return new ResponseEntity<>(hacka_modificado, HttpStatus.OK);
+  }
+
+  @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
+  @PutMapping("/activar/{id}")
+  public ResponseEntity<?> cambiarEstadoActivo(@PathVariable long id){
+    Hackathon hackaActiva = hackathonrepo.findByActivoTrue();
+
+    if (hackaActiva != null) {
+      return new ResponseEntity<>("Ya existe una hackathon activa", HttpStatus.CONFLICT);
+
+    }else{
+      hackaActiva = hackathonrepo.findById(id);
+      hackaActiva.setActivo(true);
+      hackathonrepo.save(hackaActiva);
+      return new ResponseEntity<>(hackaActiva, HttpStatus.OK);
+
+    }
+
+  }
 }

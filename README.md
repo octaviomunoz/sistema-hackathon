@@ -15,6 +15,9 @@ Con Autenticacion
 |`POST`|`/hackathon/guardar` | Guarda una Hackathon|
 |`GET`|`/hackathon/{id}` | Devuelve una Hackathon|
 |`GET`|`/hackathon/lista` | Devuelve Todas las hackathones finalizadadas|
+|`PUT`|`/hackathon` | Modifica la HackathonEntregada|
+|`PUT`|`/hackathon/activar/{id}` |publica una hackathon|
+
 
 
 ### Ejemplo de uso de login
