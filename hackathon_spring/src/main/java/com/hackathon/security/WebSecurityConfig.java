@@ -20,10 +20,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private UserDetailsService userDetailsService;
-
+/*
 	String[] libreAutenticacion = new String[]{
-		"/hackathon"
-	};
+		"/hackathon", "/equipo/inscribir/**"
+	};*/
 
 
 	public WebSecurityConfig(UserDetailsService userDetailsService) {
@@ -60,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.csrf().disable()
 				.authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
 				.antMatchers(HttpMethod.GET, "/hackathon").permitAll()
+				.antMatchers(HttpMethod.POST, "/equipo/**").permitAll()
 				.anyRequest().authenticated().and()
 				.addFilterBefore(new JwtAuthenticationFilter(authenticationManager()),
 						UsernamePasswordAuthenticationFilter.class)
