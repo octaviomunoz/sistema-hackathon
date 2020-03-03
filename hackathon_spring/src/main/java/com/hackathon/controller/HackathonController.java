@@ -32,14 +32,18 @@ public class HackathonController {
     hackathonSave.setFechaRealizacion(hackathon.getFechaRealizacion());
     hackathonSave.setFechaFinalizacionInscripcion(hackathon.getFechaFinalizacionInscripcion());
 
-    if (hackathonSave.getFechaRealizacion().compareTo(hackathonSave.getFechaFinalizacionInscripcion()) <= 0 ){
+    if (!hackathonSave.inscripcionAntesRealizacion()){
       return new ResponseEntity<>("La fecha inscripcion debe terminar antes del la realizacion de la hackathon", HttpStatus.BAD_REQUEST);
+    }
+
+    hackathonSave.setIntegrantesMaxEquipo(hackathon.getIntegrantesMaxEquipo());
+    hackathonSave.setIntegrantesMinEquipo(hackathon.getIntegrantesMinEquipo());
+    if (!hackathonSave.comparaIntegrantesMinMax()){
+      return new ResponseEntity<>("Los integrantes tienen que ser mayor que cero y el minimo menor o iguala al maximo", HttpStatus.BAD_REQUEST);
     }
 
     hackathonSave.setTema(hackathon.getTema());
     hackathonSave.setDescripcion(hackathon.getDescripcion());
-    hackathonSave.setIntegrantesMaxEquipo(hackathon.getIntegrantesMaxEquipo());
-    hackathonSave.setIntegrantesMinEquipo(hackathon.getIntegrantesMinEquipo());
 
     hackathonrepo.save(hackathonSave);
     return new ResponseEntity<>(hackathonSave, HttpStatus.OK);
@@ -94,8 +98,14 @@ public class HackathonController {
     hacka_modificado.setDescripcion(hackathon.getDescripcion());
     hacka_modificado.setFechaRealizacion(hackathon.getFechaRealizacion());
     hacka_modificado.setFechaFinalizacionInscripcion(hackathon.getFechaFinalizacionInscripcion());
+    if (!hackathonSave.inscripcionAntesRealizacion()){
+      return new ResponseEntity<>("La fecha inscripcion debe terminar antes del la realizacion de la hackathon", HttpStatus.BAD_REQUEST);
+    }
     hacka_modificado.setIntegrantesMaxEquipo(hackathon.getIntegrantesMaxEquipo());
     hacka_modificado.setIntegrantesMinEquipo(hackathon.getIntegrantesMinEquipo());
+    if (!hacka_modificado.comparaIntegrantesMinMax()){
+      return new ResponseEntity<>("Los integrantes tienen que ser mayor que cero y el minimo menor o iguala al maximo", HttpStatus.BAD_REQUEST);
+    }
 
     hackathonrepo.save(hacka_modificado);
 

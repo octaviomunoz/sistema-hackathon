@@ -114,7 +114,9 @@ public class Hackathon {
 	}
 
 	public Hackathon(){
-		
+		activo = false;
+		integrantesMinEquipo = 0;
+		integrantesMaxEquipo = 0;
 	}
 
 	public Hackathon(String tema, String descripcion, Date fechaRealizacion, Date fechaFinalizacionInscripcion,
@@ -126,4 +128,30 @@ public class Hackathon {
 		this.integrantesMaxEquipo = integrantesMaxEquipo;
 		this.integrantesMinEquipo = integrantesMinEquipo;
 	}
+
+
+	public boolean inscripcionAntesRealizacion(){
+		if(this.fechaRealizacion == null || this.fechaFinalizacionInscripcion == null){
+			return false;
+		}
+		if(this.fechaRealizacion.compareTo(this.fechaFinalizacionInscripcion) <= 0){
+			return false;
+		}
+		return true;
+	}
+
+	public boolean comparaIntegrantesMinMax(){
+		if (this.integrantesMinEquipo <= 0 && this.integrantesMaxEquipo <= 0){
+			return false;
+		}
+
+		if (this.integrantesMinEquipo > this.integrantesMaxEquipo){
+			return false;
+		}
+
+		return true;
+
+	}
+
+
 }
