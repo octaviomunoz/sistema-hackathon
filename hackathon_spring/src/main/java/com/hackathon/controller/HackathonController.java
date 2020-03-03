@@ -22,16 +22,22 @@ public class HackathonController {
   @Autowired
   HackathonRepository hackathonrepo;
 
-
+  //Sirve para crear una nueva hackathon en el sistema
   @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
   @PostMapping("/guardar")
-  public ResponseEntity<Hackathon> saveHackathon(@RequestBody Hackathon hackathon){
+  public ResponseEntity<?> saveHackathon(@RequestBody Hackathon hackathon){
 
     Hackathon hackathonSave = new Hackathon();
-    hackathonSave.setTema(hackathon.getTema());
-    hackathonSave.setDescripcion(hackathon.getDescripcion());
+
     hackathonSave.setFechaRealizacion(hackathon.getFechaRealizacion());
     hackathonSave.setFechaFinalizacionInscripcion(hackathon.getFechaFinalizacionInscripcion());
+
+    if (hackathonSave.getFechaRealizacion().compareTo(hackathonSave.getFechaFinalizacionInscripcion()) <= 0 ){
+      return new ResponseEntity<>("La fecha inscripcion debe terminar antes del la realizacion de la hackathon", HttpStatus.BAD_REQUEST);
+    }
+
+    hackathonSave.setTema(hackathon.getTema());
+    hackathonSave.setDescripcion(hackathon.getDescripcion());
     hackathonSave.setIntegrantesMaxEquipo(hackathon.getIntegrantesMaxEquipo());
     hackathonSave.setIntegrantesMinEquipo(hackathon.getIntegrantesMinEquipo());
 
@@ -39,6 +45,7 @@ public class HackathonController {
     return new ResponseEntity<>(hackathonSave, HttpStatus.OK);
   }
 
+  //Envia la informacion de la hackathon a la cual pertenece el id
   @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
   @GetMapping("/{id}")
   public ResponseEntity<Hackathon> getHackathon(@PathVariable long id){
@@ -51,6 +58,7 @@ public class HackathonController {
     return new ResponseEntity<>(hacka, HttpStatus.OK);
   }
 
+  //Devuelve la hackathon que esta activa
   @GetMapping()
   public ResponseEntity<?> getHackathonActiva(){
     final Hackathon hacka = hackathonrepo.findByActivoTrue();
@@ -63,6 +71,7 @@ public class HackathonController {
     return new ResponseEntity<Hackathon>(hacka, HttpStatus.OK);
   }
 
+  //Devuelve la lista de tods las hackathoners que se han realizado
   @PreAuthorize("hasRole('ROLE_ADMIN')")
   @GetMapping("/lista")
   public ResponseEntity<?> getListaHackathon(){
@@ -75,6 +84,7 @@ public class HackathonController {
     return new ResponseEntity<>(listasHacka, HttpStatus.OK);
   }
 
+  //Modifica la hackathon
   @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
   @PutMapping
   public ResponseEntity<?> modificarHackathon(@RequestBody Hackathon hackathon){
@@ -92,6 +102,7 @@ public class HackathonController {
     return new ResponseEntity<>(hacka_modificado, HttpStatus.OK);
   }
 
+  //Activa una hackthon, solo puede haber una sola hackathon activa a la vez
   @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
   @PutMapping("/activar/{id}")
   public ResponseEntity<?> cambiarEstadoActivo(@PathVariable long id){
@@ -105,7 +116,6 @@ public class HackathonController {
       hackaActiva.setActivo(true);
       hackathonrepo.save(hackaActiva);
       return new ResponseEntity<>(hackaActiva, HttpStatus.OK);
-
     }
 
   }
