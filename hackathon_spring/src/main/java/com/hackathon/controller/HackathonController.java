@@ -98,7 +98,7 @@ public class HackathonController {
     hacka_modificado.setDescripcion(hackathon.getDescripcion());
     hacka_modificado.setFechaRealizacion(hackathon.getFechaRealizacion());
     hacka_modificado.setFechaFinalizacionInscripcion(hackathon.getFechaFinalizacionInscripcion());
-    if (!hackathonSave.inscripcionAntesRealizacion()){
+    if (!hacka_modificado.inscripcionAntesRealizacion()){
       return new ResponseEntity<>("La fecha inscripcion debe terminar antes del la realizacion de la hackathon", HttpStatus.BAD_REQUEST);
     }
     hacka_modificado.setIntegrantesMaxEquipo(hackathon.getIntegrantesMaxEquipo());
