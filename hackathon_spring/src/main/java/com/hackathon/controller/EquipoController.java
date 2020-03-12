@@ -49,5 +49,40 @@ public class EquipoController {
 
   }
 
+  @PutMapping
+  public ResponseEntity<?> modificarEquipo(@RequestBody Equipo equipo){
+    Equipo equipo_modificado = equiporepo.findById(equipo.getId());
+
+    equipo_modificado.setNombre(equipo.getNombre());
+
+    equiporepo.save(equipo_modificado);
+
+    return new ResponseEntity<>(equipo_modificado, HttpStatus.OK);
+
+  }
+
+  @GetMapping("/{idEquipo}")
+  public ResponseEntity<Equipo> getEquipo(@PathVariable long idEquipo){
+    final Equipo equipo = equiporepo.findById(idEquipo);
+
+    if (equipo == null){
+      return ResponseEntity.notFound().build();
+    }
+
+    return new ResponseEntity<>(equipo, HttpStatus.OK);
+  }
+
+  @DeleteMapping("/{idEquipo}")
+  public ResponseEntity<?> eliminarEquipo(@PathVariable long idEquipo){
+    final Equipo equipo = equiporepo.findById(idEquipo);
+
+    if (equipo == null){
+      return ResponseEntity.notFound().build();
+    }
+
+    equiporepo.deleteById(idEquipo);
+
+    return new ResponseEntity<>("Equipo fue Eliminado", HttpStatus.OK);
+  }
 
 }

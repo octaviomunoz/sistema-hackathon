@@ -7,6 +7,8 @@ Sin Autenticacion
 |---|---|---|
 |`POST`|`/login` | Iniciar Sesion|
 |`GET`|`/hackathon` | Devuelve la hackathon que esta activa|
+|`POST`|`/equipo/inscribir/{idHackathon}` | Guarda un equipo asociado en el id de la hackathon|
+
 
 
 Con Autenticacion
@@ -17,6 +19,10 @@ Con Autenticacion
 |`GET`|`/hackathon/lista` | Devuelve Todas las hackathones finalizadadas|
 |`PUT`|`/hackathon` | Modifica la HackathonEntregada|
 |`PUT`|`/hackathon/activar/{id}` |publica una hackathon|
+|`DELETE`|`/equipo/{idEquipo}` |Elimina un equipo|
+|`GET`|`/equipo/{idEquipo}` |Muestra informacion del equipo asociado|
+
+
 
 
 
