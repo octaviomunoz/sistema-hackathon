@@ -6,14 +6,14 @@ import Test from './componentes/Test.jsx';
 import CrearHacka from './componentes/CrearHacka.jsx';
 import Ejemplo from './componentes/vacio.jsx';
 
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+//import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import {tick} from './componentes/CountDown.jsx';
+//import {tick} from './componentes/CountDown.jsx';
 
-import Home from './componentes/vistas/Home.jsx';
+//import Home from './componentes/vistas/Home.jsx';
 
 
-/*
+
 function App() {
   return (<>
     <NavBar/>
@@ -23,8 +23,8 @@ function App() {
 
     </>
   );
-}*/
-
+}
+/*
 function App(){
   return (
   <BrowserRouter>
@@ -45,5 +45,5 @@ function App(){
     </BrowserRouter>
 );
 }
-
+*/
 export default App;

@@ -51,7 +51,7 @@ class UploadImagen extends Component {
     formData.append('file', file);
     formData.append('upload_preset', cloudName);
 
-    const response = await axios.post(
+    /*const response = await axios.post(
         url,
         formData,
     );
@@ -62,7 +62,7 @@ class UploadImagen extends Component {
         publicId: response.data.public_id,
       },
     });
-
+    */
   }
 
 
