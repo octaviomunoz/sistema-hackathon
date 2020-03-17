@@ -6,5 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface IntegranteRepository extends JpaRepository<Integrante, Long> {
-  
+
+  Integrante findById(long id);
 }
