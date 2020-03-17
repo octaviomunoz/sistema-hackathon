@@ -16,7 +16,7 @@ import com.hackathon.repository.HackathonRepository;
 
 @RestController
 @RequestMapping("/hackathon")
-@CrossOrigin
+@CrossOrigin("*")
 public class HackathonController {
 
   @Autowired
