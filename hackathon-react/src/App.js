@@ -1,8 +1,18 @@
 import React, {useState, useEffect} from 'react';
+import { Component } from 'react';
 import { CloudinaryContext, Image } from "cloudinary-react";
 import { fetchPhotos, openUploadWidget } from "./CloudinaryService";
 import './App.css';
-function App() {
+import {DataTable} from 'primereact/datatable';
+import {Column} from 'primereact/column';
+import { HackathonService } from './Services/HackathonService';
+import {Panel} from 'primereact/panel';
+
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
+/* function App() {
   const [images, setImages] = useState([])
 
   const beginUpload = tag => {
@@ -46,23 +56,49 @@ function App() {
 
 export default App;
 
+*/
 
-
-/*export default class App extends Component{
+export default class App extends Component{
   constructor(){
     super();
     this.state= {};
+    this.item = [
+      {
+        label : 'Hola',
+        icon  : 'pi pi-fw pi-plus',
+        command: () => {alert('que pasa larva')}
+      },
+      {
+        label : 'hola 2',
+        icon  : 'pi pi-fw pi-pencil',
+        command: () => {alert('que pasa larva2')}
+      },
+      {
+        label : 'hola 3',
+        icon  : 'pi pi-fw pi-trash',
+        command: () => {alert('que pasa larva3')}
+      }
+    ]
+
+    
     this.hackathonService = new HackathonService()
   } 
   componentDidMount(){
-    this.hackathonService.getAll().then(data => {
-      console.log(data);
-    } )
+    this.hackathonService.getAll().then(data => this.setState({hackathon : data}))
 
   }
   render(){
-    return(
-      <h1>Hola Mundo</h1>
+    return(<>
+      
+      <Menubar model = {this.item}/>
+      <Panel header = "react" style={{width:'50%', margin: '0 auto', marginTop: '20px'}}>
+        <DataTable value = {this.state.personas}> 
+          <Column field = "id" header ="ID"></Column>
+          <Column field = "nombre?" header ="nombre"></Column>
+          <Column field = "apellido?" header ="apellido"></Column>
+        </DataTable> 
+      </Panel>
+   
     );
   }
-    */
+}
