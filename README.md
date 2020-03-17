@@ -49,7 +49,7 @@ authorization →Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsIkNMQUlNX1RPS0V
 
 ### React
 
-Se comienza instalando la carpeta de react 
+Se comienza instalando la carpeta de react  O descargando esto https://we.tl/t-KcC0lIkj0H y pegandolo en la carpeta del proyecto.
 
 ```
 npx create-react-app hackathon-react
