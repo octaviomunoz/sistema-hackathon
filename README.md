@@ -52,12 +52,26 @@ authorization →Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsIkNMQUlNX1RPS0V
 Se comienza instalando la carpeta de react (No lo hagan porque ya estara creada)
 
 ```
-npx install create-react-app "Nombre de la carpeta"
+npx create-react-app "Nombre de la carpeta"
 ```
 * Iniciamos entrando a la carpeta donde se creo react, cd "nombre de la carpeta"
 * Iniciamos con
 ```
 npm start
+```
+* Instalamos Prime faces para React ( https://www.primefaces.org/primereact/showcase/#/setup )
+
+
+```
+npm install primereact --save  
+```
+```
+npm install primeicons --save  
+```
+* Instalar *AXIOS* Porque sera lo que nos permitira hacer las peticiones http a nuestra Api Rest
+
+```
+npm install axios --save 
 ```
 
 
