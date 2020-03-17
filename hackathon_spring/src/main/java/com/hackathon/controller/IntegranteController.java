@@ -14,7 +14,7 @@ import com.hackathon.repository.EquipoRepository;
 
 @RestController
 @RequestMapping("/integrante")
-@CrossOrigin
+@CrossOrigin(""*")
 public class IntegranteController {
   @Autowired
   IntegranteRepository integranterepo;
