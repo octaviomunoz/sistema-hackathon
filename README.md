@@ -74,4 +74,8 @@ npm install primeicons --save
 npm install axios --save 
 ```
 
+* Instalar cloudinary con el fin de almacenar las fotos en la nube.
 
+```
+npm install cloudinary-react --save
+```
