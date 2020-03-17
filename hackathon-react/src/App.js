@@ -88,7 +88,7 @@ export default class App extends Component{
 
   }
   render(){
-    return(<>
+    return(
       
       <Menubar model = {this.item}/>
       <Panel header = "react" style={{width:'50%', margin: '0 auto', marginTop: '20px'}}>

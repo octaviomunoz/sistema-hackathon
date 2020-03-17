@@ -10,7 +10,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import {tick} from './componentes/CountDown.jsx';
 
-import Home from './componentes/vistas/Home.jsx';
+
 
 class App extends Component {
   render (){
