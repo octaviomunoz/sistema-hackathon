@@ -3,7 +3,14 @@ import { Component } from 'react';
 import { CloudinaryContext, Image } from "cloudinary-react";
 import { fetchPhotos, openUploadWidget } from "./CloudinaryService";
 import './App.css';
-<<<<<<< HEAD
+//import {DataTable} from 'primereact/datatable';
+//import {Column} from 'primereact/column';
+//import { HackathonService } from './Services/HackathonService';
+//import {Panel} from 'primereact/panel';
+
+//import 'primereact/resources/themes/nova-light/theme.css';
+//import 'primereact/resources/primereact.min.css';
+//import 'primeicons/primeicons.css';
 
 
 import Login from './componentes/Login.jsx';
@@ -17,15 +24,8 @@ function App() {
   return resultado;
 
 
-=======
-import {DataTable} from 'primereact/datatable';
-import {Column} from 'primereact/column';
-import { HackathonService } from './Services/HackathonService';
-import {Panel} from 'primereact/panel';
+}
 
-import 'primereact/resources/themes/nova-light/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
 
 /* function App() {
 >>>>>>> 8636259eb221846b98f041acc1f32711216e9b39
@@ -71,12 +71,12 @@ import 'primeicons/primeicons.css';
     </div>
    </CloudinaryContext>
   );
-}
+}*/
 
 export default App;
 
-*/
 
+/*
 export default class App extends Component{
   constructor(){
     super();
@@ -99,7 +99,7 @@ export default class App extends Component{
       }
     ]
 
-    
+
     this.hackathonService = new HackathonService()
   }
   componentDidMount(){
@@ -108,16 +108,17 @@ export default class App extends Component{
   }
   render(){
     return(
-      
+
       <Menubar model = {this.item}/>
       <Panel header = "react" style={{width:'50%', margin: '0 auto', marginTop: '20px'}}>
-        <DataTable value = {this.state.personas}> 
+        <DataTable value = {this.state.personas}>
           <Column field = "id" header ="ID"></Column>
           <Column field = "nombre?" header ="nombre"></Column>
           <Column field = "apellido?" header ="apellido"></Column>
-        </DataTable> 
+        </DataTable>
       </Panel>
-   
+
     );
   }
-}
+
+}*/
