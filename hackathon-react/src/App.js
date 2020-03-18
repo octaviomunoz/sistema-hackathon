@@ -2,7 +2,19 @@ import React, {useState, useEffect} from 'react';
 import { CloudinaryContext, Image } from "cloudinary-react";
 import { fetchPhotos, openUploadWidget } from "./CloudinaryService";
 import './App.css';
+
+
+import Login from './componentes/Login.jsx';
+
+
 function App() {
+
+  const instancia = new Login();
+  const resultado = instancia.render();
+
+  return resultado;
+
+
   const [images, setImages] = useState([])
 
   const beginUpload = tag => {
@@ -26,6 +38,9 @@ function App() {
   useEffect( () => {
     fetchPhotos("image", setImages);
   }, [])
+
+
+
 
   return (
    <CloudinaryContext cloudName="nitrogenoo">
@@ -53,7 +68,7 @@ export default App;
     super();
     this.state= {};
     this.hackathonService = new HackathonService()
-  } 
+  }
   componentDidMount(){
     this.hackathonService.getAll().then(data => {
       console.log(data);
