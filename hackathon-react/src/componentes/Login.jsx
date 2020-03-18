@@ -19,22 +19,31 @@ class Login extends React.Component {
   	"user" : "user1",
   	"password" : "password1"
     });
-    console.log(data);
     var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "/login");
+    xhr.open("GET", "/hackathon");
     xhr.setRequestHeader("content-type", "application/json");
-    xhr.send(data);
+    xhr.send();
 
     xhr.onreadystatechange = function(){
       if(xhr.readyState == 4 && xhr.status == 200) {
           var token = xhr.getResponseHeader("authorization");
           localStorage.setItem('token', token);
           console.log(token);
+      }else if (xhr.status == 404){
+        console.log(xhr.responseText);
+        console.log(xhr.statusText);
+
+      }else{
+        console.log("la peticion  http no funciona");
+        console.log(xhr.statusText)
       }
+
+      }
+
     }
 
-  }
+
 
 
 
