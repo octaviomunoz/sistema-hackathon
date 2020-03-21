@@ -7,19 +7,73 @@ import CrearHacka from './componentes/CrearHacka.jsx';
 import Ejemplo from './componentes/vacio.jsx';
 import Timer from './componentes/Timer';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-
+import firebase from 'firebase';
 import {tick} from './componentes/CountDown.jsx';
-
-
+import FileUpload from './componentes/FileUpload';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      user: null
+    };
+    this.handleAuth = this.handleAuth.bind(this);
+    this.handleLogout= this.handleLogout.bind(this);
+  }
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user =>{
+      this.setState({
+        user: user
+      });
+    })
+  }
+
+  handleAuth(){
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+    .then(result => console.log(`${result.user.email} ha iniciado sesion`))
+    .catch(error => console.log(`Error ${error.code}: ${error.message}`));
+
+  }
+
+  handleLogout(){
+    firebase.auth().signOut()
+    .then(result => console.log(`${result.user.email} Ha salido con exito`))
+    .catch(error => console.log(`Error ${error.code}: ${error.message}`));
+  }
+
+  renderLoginButton(){
+    //Si el usuario esta logeado
+    if(this.state.user){
+      return (
+        <div>
+          <p>
+            Hola {this.state.user.displayName}!
+          </p>
+ 
+          <FileUpload/>
+          <button onClick={this.handleLogout}>Salir</button>
+        </div>
+      )
+    }else {  //si no lo está
+      return(<button onClick={this.handleAuth}>Login con Google</button>);
+    }
+   
+  }
+  
   render (){
     return (<>
-      <NavBar/>
       <div className = "App">
-        <header className="App-header">
-          <Timer/>
-        </header>
+        <div className="App-header">
+          <h2>Hackathon</h2>
+          {this.renderLoginButton()}
+        </div>
+        <p className = "App-intro">
+          
+          
+        </p>
+
+
       </div>
 
 
@@ -27,58 +81,4 @@ class App extends Component {
       );
   }
 }
-
-/*<BrowserRouter>
-        <Switch>
-          <Route
-            path="/"
-            component={Home} />
-          <Route
-            exact
-            path="/newHackathon"
-            render = {() => <CrearHacka />} />
-          <Route
-            exact
-            path="/inicio"
-            render = {() => <NavBar/>} />
-          </Switch>
-        </BrowserRouter>
-      */
-
 export default App;
-/*
-function App() {
-  return (<>
-    <NavBar/>
-    <CrearHacka/>
-    <Test/>
-    <Ejemplo/>
-
-    </>
-  );
-}
-*/
-/*function App(){
-  return (<>
-  <NavBar/>
-  <BrowserRouter>
-    <Switch>
-      <Route
-        path="/"
-        component={Home} />
-      <Route
-        exact
-        path="/newHackathon"
-        render = {() => <CrearHacka />} />
-      <Route
-        exact
-        path="/inicio"
-        render = {() => <NavBar/>} />
-      </Switch>
-    </BrowserRouter>
-    <NavBar/>
-    </>
-  );
-}
-export default App;
-*/

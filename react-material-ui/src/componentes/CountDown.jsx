@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import ReactDOM from 'react-dom';
 
 function CountDown(){
@@ -23,3 +23,4 @@ function tick(){
 }
 
 setInterval(tick, 1000);
+*/

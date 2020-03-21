@@ -28,8 +28,6 @@ class UploadImagen extends Component {
 
 
 
-
-
 };
 
 
