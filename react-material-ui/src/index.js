@@ -7,6 +7,7 @@ import { Switch, Route, BrowserRouter } from "react-router-dom";
 import Nav from './componentes/navBar';
 import FileUpload from './componentes/FileUpload';
 import firebase from 'firebase';
+import Login from './componentes/Login.jsx';
 
 firebase.initializeApp({
     apiKey: `AIzaSyCzbd13dkGqRYf8WiBLaxOBee4xEAwhXK8`,
@@ -14,17 +15,20 @@ firebase.initializeApp({
     databaseURL: `https://hackathon-imagenes.firebaseio.com`,
     storageBucket: `hackathon-imagenes.appspot.com`,
     messagingSenderId: `971190112823`,
+
 });
 
 
 ReactDOM.render(
     <BrowserRouter>
         <Switch>
-            <Route exact path ='/' component= {Nav} />
+            <Route exact path ='/' component= {Login} />
         </Switch>
         <Switch>
-            <Route exact path ='/' component= {App} />
+            <Route path ='/home' component= {App} />
         </Switch>
+
+ 
     
     </BrowserRouter>,
     

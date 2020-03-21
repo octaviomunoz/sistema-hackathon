@@ -11,6 +11,7 @@
     "firebase": "^7.12.0",
     "import": "0.0.6",
     "react": "^16.10.2",
+    "react-countdown-now": "^2.1.2",
     "react-dom": "^16.13.1",
     "react-dropzone": "^10.2.1",
     "react-dropzone-uploader": "^2.11.0",

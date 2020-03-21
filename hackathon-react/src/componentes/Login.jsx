@@ -23,14 +23,15 @@ class Login extends React.Component {
 
     xhr.open("GET", "/hackathon");
     xhr.setRequestHeader("content-type", "application/json");
-    xhr.send();
+    xhr.setRequestHeader("token", localStorage.getItem("token"));
+    xhr.send(data);
 
     xhr.onreadystatechange = function(){
-      if(xhr.readyState == 4 && xhr.status == 200) {
+      if(xhr.readyState === 4 && xhr.status === 200) {
           var token = xhr.getResponseHeader("authorization");
           localStorage.setItem('token', token);
           console.log(token);
-      }else if (xhr.status == 404){
+      }else if (xhr.status === 404){
         console.log(xhr.responseText);
         console.log(xhr.statusText);
 

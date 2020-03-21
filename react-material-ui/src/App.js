@@ -1,6 +1,6 @@
 import React, {Component } from 'react';
 import './App.css';
-import Login from './componentes/login.jsx';
+import Login from './componentes/Login.jsx';
 import NavBar from './componentes/navBar.jsx';
 import Test from './componentes/Test.jsx';
 import CrearHacka from './componentes/CrearHacka.jsx';
@@ -8,8 +8,9 @@ import Ejemplo from './componentes/vacio.jsx';
 import Timer from './componentes/Timer';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import firebase from 'firebase';
-import {tick} from './componentes/CountDown.jsx';
 import FileUpload from './componentes/FileUpload';
+import Countdown from 'react-countdown-now';
+import Table from './componentes/Table';
 
 class App extends Component {
   constructor(){
@@ -66,6 +67,9 @@ class App extends Component {
       <div className = "App">
         <div className="App-header">
           <h2>Hackathon</h2>
+          <Table/>
+          <Countdown date={Date.now() + 10000*100000} />
+
           {this.renderLoginButton()}
         </div>
         <p className = "App-intro">
