@@ -1,13 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
-import Gallery from './Galeria.jsx';
 import { Container } from '@material-ui/core';
 import Nav from './NavBar';
 
