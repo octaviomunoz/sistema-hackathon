@@ -9,6 +9,7 @@ import FileUpload from './componentes/FileUpload';
 import firebase from 'firebase';
 import Login from './componentes/Login.jsx';
 import HackaActiva from './componentes/HackaActiva';
+import InscribirEquipo from './componentes/InscribirEquipo';
 
 firebase.initializeApp({
     apiKey: `AIzaSyCzbd13dkGqRYf8WiBLaxOBee4xEAwhXK8`,
@@ -33,6 +34,9 @@ ReactDOM.render(
         </Switch>
         <Switch>
             <Route path ='/formulario' component= {FormularioHacka} />
+        </Switch>
+        <Switch>
+            <Route path ='/equipo' component= {InscribirEquipo} />
         </Switch>
 
  
