@@ -1,61 +1,83 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
+import Nav from './NavBar';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
+//Object.value()
+class MuestraEquipo extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {data: [] }
 
-function createData(Nombre, Email, Run, Talla, Telefono) {
-  return { Nombre, Email, Run, Talla, Telefono };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 22, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function SimpleTable() {
-  const classes = useStyles();
-  return (
-      <Container color="w">
-      <Table className={classes.table} aria-label="simple table">
+        }
+   /* cambiarestado(){
+          this.setState({activo: !this.state.activo});
+      }
+      */
+    componentDidMount(){
+        axios.get(`http://localhost:8080/hackathon`)
+        .then(res => {
+        this.setState({data: [res.data]})
+      })
+    };
+    /* mostrarcosas(){
+        axios.get(`http://localhost:8080/hackathon`)
+        .then(res => {
+        this.setState({data: res.data})
+        })
+    } */
+    render() {
+      const classes= makeStyles({
+        root: {
+          width: '100%',
+          overflowX: 'auto',
+        },
+        table: {
+          minWidth: 650,
+        },
+      });  
+ 
+      return (<>
+        <Nav/>
+        <center> 
+            <h1>   Lista De Equipo    </h1> 
+        <Container>
+        <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Nombre Team</TableCell>
+            <TableCell align="right">Id Integrante</TableCell>
             <TableCell align="right">Nombre</TableCell>
-            <TableCell align="right">Email</TableCell>
             <TableCell align="right">Run</TableCell>
+            <TableCell align="right">Email</TableCell>
             <TableCell align="right">Talla</TableCell>
-            <TableCell align="right">Telefono</TableCell>
+            <TableCell align="right"Telefono</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
+            
+          {this.state.data.map(row => (
+            <TableRow key={row.id}>
+
+              <TableCell align="right">{row.Id}</TableCell>
               <TableCell align="right">{row.Nombre}</TableCell>
-              <TableCell align="right">{row.Email}</TableCell>
               <TableCell align="right">{row.Run}</TableCell>
+              <TableCell align="right">{row.Email}</TableCell>
               <TableCell align="right">{row.Talla}</TableCell>
               <TableCell align="right">{row.Telefono}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
-      </Container>
-  );
-}
-  
+      </Container>       
+      </center>
+        </>)
+    }
+  }
+  export default MuestraEquipo;
