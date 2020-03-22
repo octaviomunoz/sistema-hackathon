@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 export default function SignInSide() {
     const [state, setState] = React.useState({
         Equipo: '',
-        Hackathon: '',
+        id: '',
 
     })
 
@@ -61,7 +61,7 @@ export default function SignInSide() {
 
     function enviar(){
         console.log(state);
-        axios.post(`/equipo/inscribir/`+ state.Hackathon , state)
+        axios.post(`http://localhost:8080/equipo/inscribir/`+ `state.id` , state)
         .then(() => console.log("soy feliz"))
     }
    
@@ -99,7 +99,7 @@ export default function SignInSide() {
               required
               fullWidth
               label="Clave de hackathon"
-              name="Hackathon"
+              name="id"
               autoComplete="equipo"
               autoFocus
             />

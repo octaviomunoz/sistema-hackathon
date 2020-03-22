@@ -62,7 +62,7 @@ export default function SignInSide() {
 
   function enviar(){
     console.log(state);
-    axios.post(`/login`, state)
+    axios.post(`http://localhost:8080/login`, state)
     .then((token) => console.log(token))
   }
 
