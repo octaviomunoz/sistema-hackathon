@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import axios from 'axios';
 
 
 const useStyles = makeStyles(theme => ({
@@ -44,6 +45,28 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignInSide() {
+
+  const [state, setState] = React.useState({
+    user: '',
+    pass: '',
+})
+
+  function changedState(e){
+    let value= e.target.value
+    setState({
+        ...state,
+        [e.target.name]: value
+    })
+  }
+
+
+  function enviar(){
+    console.log(state);
+    axios.post(`http://localhost:8080/login`, state)
+    .then((token) => console.log(token))
+  }
+
+  
   const classes = useStyles();
 
   return (<>
@@ -56,36 +79,36 @@ export default function SignInSide() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Iniciar Sesion
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
+              onChange={changedState}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              label="Usuario"
+              name="user"
+              autoComplete="user"
               autoFocus
             />
             <TextField
+              onChange={changedState}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
+              name="pass"
+              label="Contraseña"
+              type="pass"
               autoComplete="current-password"
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />                              
-            <Button onClick={event =>  window.location.href='/home'}
+            <Button onClick={enviar}
               fullWidth
               variant="contained"
               color="primary"

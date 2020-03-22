@@ -3,15 +3,13 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,8 +44,33 @@ const useStyles = makeStyles(theme => ({
 ));
 
 
-
 export default function SignInSide() {
+    const [state, setState] = React.useState({
+        tema: '',
+        descripcion: '',
+        fecha_realizacion: "2020-04-31",
+        fecha_finalizacion_inscripcion: "2020-03-28",
+        integrantes_max_equipo: '',
+        integrantes_min_equipo: '',
+        activo: false
+
+    })
+
+    function changedState(e){
+        let value= e.target.value
+        setState({
+            ...state,
+            [e.target.name]: value
+        })
+    }
+
+    function enviar(){
+        console.log(state);
+        axios.post(`http://localhost:8080/hackathon/guardar`, state)
+        .then(() => console.log("soy feliz"))
+    }
+   
+
   const classes = useStyles();
 
   return (<>
@@ -63,7 +86,8 @@ export default function SignInSide() {
             Formulario Creacion Hackathon
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
+            <TextField 
+                onChange={changedState} 
               variant="outlined"
               margin="normal"
               required
@@ -75,50 +99,52 @@ export default function SignInSide() {
               autoFocus
             />
             <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="descripcion"
-              label="Descripcion Hackathon"
-              name="descripcion"
-              autoComplete="descripcion"
-              autoFocus
+                onChange={changedState}
+                variant="outlined"
+                margin="normal"
+                required
+                    fullWidth
+                    id="descripcion"
+                    label="Descripcion Hackathon"
+                    name="descripcion"
+                    autoComplete="descripcion"
+                    autoFocus
             />
            <TextField
+            onChange={changedState}
                variant="outlined"
                margin="normal"
                required
                fullWidth
-               id="fecha_realizacion"
+               name="fecha_realizacion"
                label="Fecha Realizacion "
                type="date"
-               defaultValue="2020-05-31"
                className={classes.textField}
                InputLabelProps={{
                shrink: true,
                }}
             />
             <TextField
+             onChange={changedState}
                variant="outlined"
                margin="normal"
                required
                fullWidth
-               id="fecha_finalizacion_inscripcion"
+               name="fecha_finalizacion_inscripcion"
                label="Fecha Finalizacion Inscripcion "
                type="date"
-               defaultValue="2020-04-31"
                className={classes.textField}
                InputLabelProps={{
                shrink: true,
                }}
             />
             <TextField 
+             onChange={changedState}
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="integrantes_max_equipo" label="Integrantes Maximos por Equipo" select>
+            name="integrantes_max_equipo" label="Integrantes Maximos por Equipo" select>
             <MenuItem value="1">1</MenuItem>
             <MenuItem value="2">2</MenuItem>
             <MenuItem value="3">3</MenuItem>
@@ -126,29 +152,20 @@ export default function SignInSide() {
             <MenuItem value="5">5</MenuItem>
             </TextField>
             <TextField 
+             onChange={changedState}
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            id="integrantes_min_equipo" label="Integrantes Minimos por Equipo" select>
+            name="integrantes_min_equipo" label="Integrantes Minimos por Equipo" select>
             <MenuItem value="1">1</MenuItem>
             <MenuItem value="2">2</MenuItem>
             <MenuItem value="3">3</MenuItem>
             <MenuItem value="4">4</MenuItem>
             <MenuItem value="5">5</MenuItem>
             </TextField>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />                     
-            <Button onClick={event =>  window.location.href='/home'}
+            
+            <Button onClick={enviar}
               fullWidth
               variant="contained"
               color="primary"
