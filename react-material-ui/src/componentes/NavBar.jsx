@@ -49,6 +49,10 @@ class Nav extends React.Component {
           <Button onClick={event =>  window.location.href='/equipo'} style={{color: '#FFF'}}>
             Formulario Equipo
           </Button>
+          
+          <Button onClick={event =>  window.location.href='/MuestraEquipo'} style={{color: '#FFF'}}>
+            Mostrar Equipo
+          </Button>
 
 
         </Toolbar>

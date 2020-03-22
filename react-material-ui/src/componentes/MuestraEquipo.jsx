@@ -56,7 +56,7 @@ class MuestraEquipo extends React.Component {
             <TableCell align="right">Run</TableCell>
             <TableCell align="right">Email</TableCell>
             <TableCell align="right">Talla</TableCell>
-            <TableCell align="right"Telefono</TableCell>
+            <TableCell align="right">Telefono</TableCell>
             
           </TableRow>
         </TableHead>
@@ -65,12 +65,12 @@ class MuestraEquipo extends React.Component {
           {this.state.data.map(row => (
             <TableRow key={row.id}>
 
-              <TableCell align="right">{row.Id}</TableCell>
-              <TableCell align="right">{row.Nombre}</TableCell>
-              <TableCell align="right">{row.Run}</TableCell>
-              <TableCell align="right">{row.Email}</TableCell>
-              <TableCell align="right">{row.Talla}</TableCell>
-              <TableCell align="right">{row.Telefono}</TableCell>
+              <TableCell align="right">{row.id}</TableCell>
+              <TableCell align="right">{row.nombre}</TableCell>
+              <TableCell align="right">{row.run}</TableCell>
+              <TableCell align="right">{row.email}</TableCell>
+              <TableCell align="right">{row.talla}</TableCell>
+              <TableCell align="right">{row.telefono}</TableCell>
             </TableRow>
           ))}
         </TableBody>
