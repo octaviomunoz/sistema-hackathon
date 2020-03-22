@@ -62,11 +62,11 @@ export default function SignInSide() {
 
   function enviar(){
     console.log(state);
-    axios.post(`http://localhost:8080/login`, state)
+    axios.post(`/login`, state)
     .then((token) => console.log(token))
   }
 
-  
+
   const classes = useStyles();
 
   return (<>
@@ -107,7 +107,7 @@ export default function SignInSide() {
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />                              
+            />
             <Button onClick={enviar}
               fullWidth
               variant="contained"
