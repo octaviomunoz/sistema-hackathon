@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import Gallery from './Galeria.jsx';
+import { Container } from '@material-ui/core';
 
 
 class Ejemplo extends React.Component {
@@ -47,6 +48,7 @@ class Ejemplo extends React.Component {
                      Primary
                     </Button>
              <h1>   Hola, este es una prueba,       </h1> 
+        <Container>
         <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -77,6 +79,7 @@ class Ejemplo extends React.Component {
           ))}
         </TableBody>
       </Table>
+      </Container>
       {this.state.activo && <Gallery/>}
        
           </center>

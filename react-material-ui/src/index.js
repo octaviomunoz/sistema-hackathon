@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Nav from './componentes/navBar';
+import FormularioHacka from "./componentes/FormularioHacka";
 import FileUpload from './componentes/FileUpload';
 import firebase from 'firebase';
 import Login from './componentes/Login.jsx';
+import HackaActiva from './componentes/HackaActiva';
 
 firebase.initializeApp({
     apiKey: `AIzaSyCzbd13dkGqRYf8WiBLaxOBee4xEAwhXK8`,
@@ -26,6 +27,12 @@ ReactDOM.render(
         </Switch>
         <Switch>
             <Route path ='/home' component= {App} />
+        </Switch>
+        <Switch>
+            <Route path ='/hacka' component= {HackaActiva} />
+        </Switch>
+        <Switch>
+            <Route path ='/formulario' component= {FormularioHacka} />
         </Switch>
 
  

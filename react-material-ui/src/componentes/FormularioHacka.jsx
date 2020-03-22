@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
 const useStyles = makeStyles(theme => ({
@@ -40,8 +41,11 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },
-}));
+  }
+}
+));
+
+
 
 export default function SignInSide() {
   const classes = useStyles();
@@ -56,9 +60,83 @@ export default function SignInSide() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Formulario Creacion Hackathon
           </Typography>
           <form className={classes.form} noValidate>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="tema"
+              label="Tema Hackathon"
+              name="tema"
+              autoComplete="tema"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="descripcion"
+              label="Descripcion Hackathon"
+              name="descripcion"
+              autoComplete="descripcion"
+              autoFocus
+            />
+           <TextField
+               variant="outlined"
+               margin="normal"
+               required
+               fullWidth
+               id="fecha_realizacion"
+               label="Fecha Realizacion "
+               type="date"
+               defaultValue="2020-05-31"
+               className={classes.textField}
+               InputLabelProps={{
+               shrink: true,
+               }}
+            />
+            <TextField
+               variant="outlined"
+               margin="normal"
+               required
+               fullWidth
+               id="fecha_finalizacion_inscripcion"
+               label="Fecha Finalizacion Inscripcion "
+               type="date"
+               defaultValue="2020-04-31"
+               className={classes.textField}
+               InputLabelProps={{
+               shrink: true,
+               }}
+            />
+            <TextField 
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="integrantes_max_equipo" label="Integrantes Maximos por Equipo" select>
+            <MenuItem value="1">1</MenuItem>
+            <MenuItem value="2">2</MenuItem>
+            <MenuItem value="3">3</MenuItem>
+            <MenuItem value="4">4</MenuItem>
+            <MenuItem value="5">5</MenuItem>
+            </TextField>
+            <TextField 
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="integrantes_min_equipo" label="Integrantes Minimos por Equipo" select>
+            <MenuItem value="1">1</MenuItem>
+            <MenuItem value="2">2</MenuItem>
+            <MenuItem value="3">3</MenuItem>
+            <MenuItem value="4">4</MenuItem>
+            <MenuItem value="5">5</MenuItem>
+            </TextField>
             <TextField
               variant="outlined"
               margin="normal"
@@ -69,29 +147,14 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />                              
+            />                     
             <Button onClick={event =>  window.location.href='/home'}
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              Confirmar
             </Button>
           </form>
         </div>

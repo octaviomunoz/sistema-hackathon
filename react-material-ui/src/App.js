@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import './App.css';
 import Login from './componentes/Login.jsx';
-import NavBar from './componentes/navBar.jsx';
+import NavBar from './componentes/NavBar.jsx';
 import Test from './componentes/Test.jsx';
 import CrearHacka from './componentes/CrearHacka.jsx';
 import Ejemplo from './componentes/vacio.jsx';
@@ -11,6 +11,8 @@ import firebase from 'firebase';
 import FileUpload from './componentes/FileUpload';
 import Countdown from 'react-countdown-now';
 import Table from './componentes/Table';
+import HackaActiva from './componentes/HackaActiva';
+import { Button } from '@material-ui/core';
 
 class App extends Component {
   constructor(){
@@ -52,7 +54,7 @@ class App extends Component {
             Hola {this.state.user.displayName}!
           </p>
  
-          <FileUpload/>
+
           <button onClick={this.handleLogout}>Salir</button>
         </div>
       )
@@ -66,21 +68,14 @@ class App extends Component {
     return (<>
       <div className = "App">
         <div className="App-header">
-          <h2>Hackathon</h2>
-          <Table/>
+          <h1>HACKATHON</h1>
+
           <Countdown date={Date.now() + 10000*100000} />
-
-          {this.renderLoginButton()}
-        </div>
-        <p className = "App-intro">
-          
-          
-        </p>
-
-
+          <br/>
+          <br/>
+          <Button onClick={event =>  window.location.href='/hacka'} variant="contained" color="secondary" >ENTRAR</Button>
+        </div>     
       </div>
-
-
       </>
       );
   }

@@ -42,13 +42,23 @@ class Nav extends React.Component {
           <IconButton onClick={this.cambiarestado} edge="start"  color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography>
-            News
-          </Typography>
-          <Button  color="inherit">Login</Button>
+          <Button onClick={event =>  window.location.href='/home'} style={{color: '#FFF'}}>
+            HOME
+          </Button>
+          <Button onClick={event =>  window.location.href='/formulario'} style={{color: '#FFF'}}>
+            Formulario Hackathon
+          </Button>
+
+
         </Toolbar>
         
         </AppBar>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
 
         {this.state.activo && <Gallery/>}
         </>)
