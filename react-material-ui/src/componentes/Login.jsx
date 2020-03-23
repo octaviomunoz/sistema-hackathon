@@ -48,7 +48,7 @@ export default function SignInSide() {
 
   const [state, setState] = React.useState({
     user: '',
-    pass: '',
+    password: '',
 })
 
   function changedState(e){
@@ -62,7 +62,7 @@ export default function SignInSide() {
 
   function enviar(){
     console.log(state);
-    axios.post(`http://localhost:8080/login`, state)
+    axios.post(`/login`, state,{headers: {authorization : 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMiIsIkNMQUlNX1RPS0VOIjoiIiwiaWF0IjoxNTgyNjY4MDczLCJpc3MiOiJJU1NVRVIiLCJleHAiOjE1ODI2ODI0NzN9.8RfMZNwCvRtCWzWnfsK-21yoQCjIfAPuGOjelu3IkO4'}})
     .then((token) => console.log(token))
   }
 
@@ -99,7 +99,7 @@ export default function SignInSide() {
               margin="normal"
               required
               fullWidth
-              name="pass"
+              name="password"
               label="Contraseña"
               type="pass"
               autoComplete="current-password"

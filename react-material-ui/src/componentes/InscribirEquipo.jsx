@@ -61,7 +61,7 @@ export default function SignInSide() {
 
     function enviar(){
         console.log(state);
-        axios.post(`http://localhost:8080/equipo/inscribir/`+ `state.id` , state)
+        axios.post(`http://localhost:8080/equipo/inscribir/`+ state.id , state)
         .then(() => console.log("soy feliz"))
     }
    
